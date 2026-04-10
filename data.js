@@ -367,6 +367,5 @@
 
   window.CARDS      = buildCards();
   window.FORMS_META = FORMS;
-  window.toRoman    = toRoman;
 
 }());
