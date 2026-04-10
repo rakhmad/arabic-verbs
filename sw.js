@@ -1,13 +1,14 @@
 // sw.js — Service Worker for offline caching
 // Cache-first strategy: serve from cache, fallback to network
 
-var CACHE_NAME = "arabic-verbs-v1";
+var CACHE_NAME = "arabic-verbs-v2";
 
 var LOCAL_FILES = [
   "./",
   "./index.html",
   "./style.css",
   "./data.js",
+  "./data2.js",
   "./db.js",
   "./srs.js",
   "./app.js",
