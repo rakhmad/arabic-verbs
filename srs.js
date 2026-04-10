@@ -31,6 +31,10 @@
   }
 
   function computeNext(progress, grade) {
+    var t = today();
+    if (typeof grade !== 'number' || grade < 0 || grade > 5) {
+      grade = 1; // treat invalid grade as hard
+    }
     var ef = progress.easeFactor;
     var interval = progress.interval;
     var reps = progress.repetitions;
@@ -57,7 +61,7 @@
       id: progress.id,
       easeFactor: Math.round(newEf * 1000) / 1000,
       interval: newInterval,
-      dueDate: addDays(today(), newInterval),
+      dueDate: addDays(t, newInterval),
       repetitions: newReps
     };
   }
