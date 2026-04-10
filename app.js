@@ -52,6 +52,14 @@
       } else {
         nextCard();
       }
+    }).catch(function () {
+      // Fallback for browsers where IndexedDB is unavailable (e.g. some private modes)
+      state.progressMap = {};
+      state.queue = SRS.getDueCards(CARDS, {});
+      state.hardQueue = [];
+      state.sessionTotal = state.queue.length;
+      state.sessionDone = 0;
+      nextCard();
     });
   }
 
@@ -127,7 +135,7 @@
     var updated = SRS.computeNext(existing, grade);
 
     state.progressMap[c.id] = updated;
-    DB.saveProgress(updated);
+    DB.saveProgress(updated).catch(console.error);
 
     if (grade < 3) {
       // Hard: push to hard queue to be reshown at end
@@ -155,6 +163,7 @@
       document.getElementById("done-title").textContent = "All caught up! 🌟";
       elDoneSummary.textContent = "No cards are due today. Come back tomorrow to keep your streak going.";
     } else {
+      document.getElementById("done-title").textContent = "Session Complete!";
       elDoneSummary.textContent =
         "You reviewed " + state.sessionDone + " card" +
         (state.sessionDone !== 1 ? "s" : "") + " this session. Great work!";
