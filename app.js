@@ -160,7 +160,8 @@
 
       if (state.direction === "ar") {
         elFrontAr.textContent  = c.frontAr;
-        elFrontEn.textContent  = "";
+        // p1-ovr shows the form label on both sides of the front (spec: "form label | form label")
+        elFrontEn.textContent  = c.type === "p1-ovr" ? c.frontEn : "";
         elFrontHint.textContent= "اضغط للقلب";
         elBackAr.textContent   = c.backAr;
         elBackEn.textContent   = c.backEn;
