@@ -44,8 +44,9 @@
       return new Promise(function (resolve, reject) {
         var tx = db.transaction(STORE, "readwrite");
         var req = tx.objectStore(STORE).put(progressObj);
-        req.onsuccess = function () { resolve(); };
+        tx.oncomplete = function () { resolve(); };
         req.onerror = function () { reject(req.error); };
+        tx.onerror = function () { reject(tx.error); };
       });
     });
   }
@@ -69,9 +70,9 @@
     return open().then(function (db) {
       return new Promise(function (resolve, reject) {
         var tx = db.transaction(STORE, "readwrite");
-        var req = tx.objectStore(STORE).clear();
-        req.onsuccess = function () { resolve(); };
-        req.onerror = function () { reject(req.error); };
+        tx.objectStore(STORE).clear();
+        tx.oncomplete = function () { resolve(); };
+        tx.onerror = function () { reject(tx.error); };
       });
     });
   }
