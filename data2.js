@@ -6,6 +6,9 @@
   "use strict";
 
   var FM = window.FORMS_META; // Array[10], index 0 = Form I
+  if (!FM || FM.length !== 10) {
+    throw new Error("data2.js: window.FORMS_META is missing or wrong length — ensure data.js loads first");
+  }
 
   function toRoman(n) {
     return ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"][n] || String(n);
