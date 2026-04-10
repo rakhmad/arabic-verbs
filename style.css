@@ -345,3 +345,90 @@ body {
   #card { max-width: 520px; height: 460px; }
   #rating-bar { max-width: 520px; margin: 0 auto 8px; border-radius: var(--radius); border: 1px solid var(--surface2); }
 }
+
+/* ── Home Screen ── */
+#home-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+#home-title {
+  font-family: var(--font-ar);
+  font-size: 28px;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 8px;
+  direction: rtl;
+}
+
+#deck-list {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.deck-btn {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--surface2);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s, background 0.2s;
+  color: var(--text);
+  font-family: var(--font-ui);
+  direction: ltr;
+}
+
+.deck-btn:hover,
+.deck-btn:focus-visible {
+  border-color: var(--gold);
+  background: var(--surface2);
+  outline: none;
+}
+
+.deck-icon { font-size: 32px; flex-shrink: 0; }
+
+.deck-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.deck-title   { font-size: 18px; font-weight: 700; color: var(--text); }
+.deck-subtitle{ font-size: 13px; color: var(--text-muted); }
+.deck-count   { font-size: 14px; color: var(--gold-light); font-weight: 600; }
+
+/* ── Back Button ── */
+#back-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: color 0.2s;
+  flex-shrink: 0;
+  direction: ltr;
+}
+
+#back-btn:hover { color: var(--gold); }
+
+#back-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
