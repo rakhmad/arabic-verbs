@@ -18,16 +18,16 @@
   <!-- Top bar -->
   <header id="top-bar">
     <button id="back-btn" hidden aria-label="Back to home">←</button>
-    <div id="card-meta">
+    <div id="card-meta" hidden>
       <span id="meta-form"></span>
       <span id="meta-tense"></span>
       <span id="meta-pronoun"></span>
     </div>
-    <div id="progress-wrap">
+    <div id="progress-wrap" hidden>
       <div id="progress-bar"></div>
       <span id="progress-label"></span>
     </div>
-    <button id="stats-btn" aria-label="Stats">☰</button>
+    <button id="stats-btn" hidden aria-label="Stats">☰</button>
   </header>
 
   <!-- Home screen (shown on load) -->
@@ -37,7 +37,7 @@
   </div>
 
   <!-- Flashcard -->
-  <main id="card-container">
+  <main id="card-container" hidden>
     <div id="card" role="button" tabindex="0" aria-label="Tap to flip card">
       <div id="card-inner">
         <div id="card-front">

@@ -55,6 +55,7 @@
     elBackBtn.hidden       = isHome;
     elCardMeta.hidden      = isHome;
     elProgressWrap.hidden  = isHome;
+    elStatsBtn.hidden      = isHome;
     if (isHome) {
       elRatingBar.hidden  = true;
       elDoneScreen.hidden = true;
