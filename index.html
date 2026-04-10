@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="أوزان" />
+  <link rel="apple-touch-icon" href="icons/icon-192.svg" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>أوزان — Arabic Verb Patterns</title>
+</head>
+<body>
+  <!-- Top bar -->
+  <header id="top-bar">
+    <div id="card-meta">
+      <span id="meta-form"></span>
+      <span id="meta-tense"></span>
+      <span id="meta-pronoun"></span>
+    </div>
+    <div id="progress-wrap">
+      <div id="progress-bar"></div>
+      <span id="progress-label"></span>
+    </div>
+    <button id="stats-btn" aria-label="Stats">☰</button>
+  </header>
+
+  <!-- Flashcard -->
+  <main id="card-container">
+    <div id="card" role="button" tabindex="0" aria-label="Tap to flip card">
+      <div id="card-inner">
+        <div id="card-front">
+          <div id="front-arabic" lang="ar"></div>
+          <div id="front-english"></div>
+          <div id="front-hint">اضغط للقلب</div>
+        </div>
+        <div id="card-back">
+          <div id="back-arabic" lang="ar"></div>
+          <div id="back-english"></div>
+          <div id="back-root"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rating buttons (hidden until flip) -->
+  <footer id="rating-bar" hidden>
+    <button class="rating-btn" id="btn-hard" data-grade="1">✗ Hard</button>
+    <button class="rating-btn" id="btn-okay" data-grade="3">◎ Okay</button>
+    <button class="rating-btn" id="btn-easy" data-grade="5">✓ Easy</button>
+  </footer>
+
+  <!-- Stats panel (hidden by default) -->
+  <aside id="stats-panel" hidden>
+    <button id="stats-close">✕</button>
+    <h2>Stats</h2>
+    <div id="stats-content"></div>
+  </aside>
+
+  <!-- Session complete screen (hidden by default) -->
+  <div id="done-screen" hidden>
+    <div id="done-content">
+      <div id="done-icon">🎉</div>
+      <h2 id="done-title">Session Complete!</h2>
+      <p id="done-summary"></p>
+      <button id="done-restart">Start Again</button>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="db.js"></script>
+  <script src="srs.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js');
+    }
+  </script>
+</body>
+</html>
